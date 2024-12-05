@@ -16,7 +16,6 @@
 # Output:
 #  Writes a time and voltage pair in a csv file 
 #
-
 # Written by Evan Schlein
 # Other contributors: Brad Denby
 
@@ -27,7 +26,6 @@ import csv
 
 # constants
 irr_w_m2 = 1366.1
-
 
 # initialize script arguments
 sa_m2 = float('nan') #  solar cell surface area in meter^2
@@ -122,9 +120,10 @@ while log[-1][0]<dur_s:
         i1_a = 0.0
     if node_v<v_thresh:
         p_mode_w = 0.0
-    # Append data and iterate t_s by dt_s    
-    log.append([t_s,node_v])
+    # Append data and iterate t_s by dt_s
     t_s += dt_s
+    log.append([t_s,node_v])
+    
     
 # write to csv
 with open('./log.csv',mode='w',newline='') as outfile:
