@@ -104,7 +104,9 @@ while log[-1][0]<dur_s:
     if qt_c<0.0:
         qt_c = 0.0
     # Set solar array current:
-    i1_a = isc_a if 0<=node_v<voc else 0
+    i1_a = isc_a
+    
+    #if 0<=node_v<voc else 0
 
     # Power on after charging:
     if p_mode_w==0.0 and node_v>=voc:
@@ -133,3 +135,4 @@ with open('./log.csv',mode='w',newline='') as outfile:
   )
   for e in log:
     csvwriter.writerow(e)
+
